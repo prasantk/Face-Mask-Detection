@@ -103,7 +103,7 @@ def mask_image():
 	#cv2.waitKey(0)
 	cv2_imshow(image)
 	#cv2_imshow.waitKey(0)
-	print("Label:", label[0])
+	print("Label:", label)
 	
 if __name__ == "__main__":
 	mask_image()
