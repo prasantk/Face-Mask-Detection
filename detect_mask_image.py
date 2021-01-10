@@ -52,6 +52,7 @@ def mask_image():
 	net.setInput(blob)
 	detections = net.forward()
 
+	label = ""
 	# loop over the detections
 	for i in range(0, detections.shape[2]):
 		# extract the confidence (i.e., probability) associated with
@@ -97,12 +98,12 @@ def mask_image():
 			cv2.putText(image, label, (startX, startY - 10),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
 			cv2.rectangle(image, (startX, startY), (endX, endY), color, 2)
-			print("Label:", label[0])
 	# show the output image
 	#cv2.imshow("Output", image)
 	#cv2.waitKey(0)
 	cv2_imshow(image)
 	#cv2_imshow.waitKey(0)
+	print("Label:", label[0])
 	
 if __name__ == "__main__":
 	mask_image()
