@@ -104,7 +104,6 @@ def mask_image():
 	#cv2.waitKey(0)
 	#cv2_imshow(image)
 	#cv2_imshow.waitKey(0)
-	%matplotlib inline
 	testim = mpimg.imread(image)
 	figure()
 	imshow(testim)
