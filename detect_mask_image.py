@@ -53,6 +53,7 @@ def mask_image():
 	detections = net.forward()
 
 	label = ""
+
 	# loop over the detections
 	for i in range(0, detections.shape[2]):
 		# extract the confidence (i.e., probability) associated with
@@ -87,8 +88,8 @@ def mask_image():
 
 			# determine the class label and color we'll use to draw
 			# the bounding box and text
-			label = "1" if mask > withoutMask else "0"
-			color = (0, 255, 0) if label == "1" else (0, 0, 255)
+			label = "Mask" if mask > withoutMask else "No Mask"
+			color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
 
 			# include the probability in the label
 			label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
@@ -98,12 +99,13 @@ def mask_image():
 			cv2.putText(image, label, (startX, startY - 10),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
 			cv2.rectangle(image, (startX, startY), (endX, endY), color, 2)
+
 	# show the output image
 	#cv2.imshow("Output", image)
 	#cv2.waitKey(0)
 	cv2_imshow(image)
 	#cv2_imshow.waitKey(0)
-	print("Label:", label)
+	print('label', label)
 	
 if __name__ == "__main__":
 	mask_image()
