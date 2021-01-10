@@ -9,8 +9,7 @@ import numpy as np
 import argparse
 import cv2
 import os
-import matplotlib.image as mpimg 
-from matplotlib.pyplot import imshow
+from google.colab.patches import cv2_imshow
 
 def mask_image():
 	# construct the argument parser and parse the arguments
@@ -102,11 +101,9 @@ def mask_image():
 	# show the output image
 	#cv2.imshow("Output", image)
 	#cv2.waitKey(0)
-	#cv2_imshow(image)
+	cv2_imshow(image)
 	#cv2_imshow.waitKey(0)
-	testim = mpimg.imread(image)
-	figure()
-	imshow(testim)
+	print('label', label)
 	
 if __name__ == "__main__":
 	mask_image()
